@@ -10,4 +10,4 @@ print((str as NSString).substring(with: n1)) // 🇩🇪
 let r2 = Range(n1, in: str)!
 print(str.substring(with: r2)) //
 
-print(str[r2.lowerBound..<r2.upperBound])
+print(str[r2])
