@@ -11,3 +11,15 @@ let r2 = Range(n1, in: str)!
 print(str.substring(with: r2)) //
 
 print(str[r2])
+
+func greet(to name: String = "World", nicely: Bool = false){
+    if nicely == true {
+        print("Good morning, \(name)!")
+    } else {
+        print("Hello, \(name)!")
+    }
+}
+
+greet()
+greet(to: "Anna")
+greet(to: "John", nicely: true)
