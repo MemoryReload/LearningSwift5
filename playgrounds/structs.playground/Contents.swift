@@ -48,10 +48,36 @@ print("perimeter of \(rect2.name) is \(rect2.getPerimeter())")
 //rect2.width = 30
 //rect2.height = 30
 
+struct Tree
+{
+    init() {
+        print("initialize family tree!")
+    }
+}
+
 struct User {
     var name = "Anonymous" //default value
     var age: Int
+    lazy var familyTree = Tree()
+    //this will throw an error, because self is not usable. we should use lazy property.
+//    var greetings = {
+//        "Hello \(familyTree)"
+//    }()
+    lazy var greetings = {
+        "Hello \(familyTree)"
+    }()
 }
+
+extension User {
+    init() {
+        age = 10
+    }
+}
+
 let twostraws = User(name: "Paul", age: 38)
 let anonymous = User(age:30)
+//this would throw an error, becasue the lazy property will change the testUser
+//let testUser = User()
+var testUser = User()
+testUser.familyTree
 

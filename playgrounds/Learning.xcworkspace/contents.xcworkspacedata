@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:class.playground">
+   </FileRef>
+   <FileRef
       location = "group:structs.playground">
    </FileRef>
    <FileRef
