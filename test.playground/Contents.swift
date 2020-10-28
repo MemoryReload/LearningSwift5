@@ -34,3 +34,26 @@ func greet (_ friends: String...)
 }
 
 greet("John","Anna","Jone","William")
+
+
+public class C: NSObject {
+    @objc dynamic public func method() { print("C") }
+}
+
+public class B: C {
+//    override public func method() { print("B") }
+}
+extension B {
+  override public func method() { print("B") }
+}
+
+public class A: B {
+//    override public func method() { print("A") }
+}
+extension A {
+    override public func method() { print("A") }
+}
+
+(A() as A).method()
+(A() as B).method()
+(A() as C).method()

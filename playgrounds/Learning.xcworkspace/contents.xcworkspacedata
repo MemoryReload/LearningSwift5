@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:../../../Library/Autosave Information/protocols&amp;extensions.playground">
+   </FileRef>
+   <FileRef
       location = "group:class.playground">
    </FileRef>
    <FileRef
