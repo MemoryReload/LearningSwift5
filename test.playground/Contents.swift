@@ -57,3 +57,41 @@ extension A {
 (A() as A).method()
 (A() as B).method()
 (A() as C).method()
+
+let tableHeight: Double? = 100
+if let h = tableHeight {
+    if h>85.0 {
+        print("The table is too high!")
+    }
+}
+
+func test (_ tableHeight: Double?) {
+    guard let h = tableHeight else {
+        print("------------")
+        return;
+    }
+    if h>85.0 {
+        print("The table is too high!")
+    }
+}
+
+test(75)
+
+func albumReleased(in year: Int) -> String?
+{
+    if year == 2000 {
+        return "Yesterday Once More"
+    }
+    if year == 2020 {
+        return "Taylor Swift"
+    }
+    return nil
+}
+
+var year = 2020
+var album = albumReleased(in: year)? .uppercased()
+print("\(album ?? "unkown".uppercased()) is realsed in \(year)")
+
+
+
+
