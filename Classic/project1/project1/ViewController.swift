@@ -23,6 +23,12 @@ class ViewController: UITableViewController {
             }
         }
         print("\(pictures)")
+        
+        self.title = "Storm Viewer"
+        
+        navigationController?.navigationBar.prefersLargeTitles = true;
+        
+        navigationItem.largeTitleDisplayMode = .always
     }
     
     override func numberOfSections(in tableView: UITableView) -> Int {
@@ -39,8 +45,24 @@ class ViewController: UITableViewController {
         return cell
     }
     
-    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
-        tableView.deselectRow(at: indexPath, animated: false)
+//    override func tableView(_ tableView: UITableView, didSelectRowAt indexPath: IndexPath) {
+//        tableView.deselectRow(at: indexPath, animated: false)
+//        if let controller = storyboard?.instantiateViewController(identifier: "DetailViewController") as? DetailController {
+//            controller.imageName = pictures[indexPath.row]
+//            navigationController?.pushViewController(controller, animated: true)
+//        }
+//    }
+    
+    override func prepare(for segue: UIStoryboardSegue, sender: Any?) {
+        print("segue identifier: \(String(describing: segue.identifier)) source: \(segue.source) destination: \(segue.destination) sender:\(String(describing: sender))")
+        if let cell = sender as? UITableViewCell {
+            if let indexPath = tableView.indexPath(for: cell) {
+                let imageName = pictures[indexPath.row]
+                if let detailVC = segue.destination as? DetailController {
+                    detailVC.imageName = imageName
+                }
+            }
+        }
     }
 }
 
