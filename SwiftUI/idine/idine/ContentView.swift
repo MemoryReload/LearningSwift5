@@ -9,8 +9,20 @@ import SwiftUI
 
 struct ContentView: View {
     var body: some View {
-        Text("Hello, world!")
-            .padding()
+        let sections = Bundle.main.decode([MenuSection].self, from: "menu.json")
+        NavigationView{
+            List{
+                ForEach(sections){ section in
+                    Section(header:Text(section.name)){
+                        ForEach(section.items){
+                            Text($0.name)
+                        }
+                    }
+                }
+            }
+            .navigationBarTitle("Title", displayMode:.inline)
+            .listStyle(GroupedListStyle())
+        }
     }
 }
 
