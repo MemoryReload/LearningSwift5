@@ -16,29 +16,29 @@
                         <rect key="frame" x="0.0" y="0.0" width="414" height="896"/>
                         <autoresizingMask key="autoresizingMask" widthSizable="YES" heightSizable="YES"/>
                         <subviews>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr2-HK-DfX" userLabel="Button1">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="Tr2-HK-DfX" userLabel="Button1">
                                 <rect key="frame" x="107" y="125" width="200" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="height" constant="100" id="c70-ff-2gC"/>
                                     <constraint firstAttribute="width" constant="200" id="zda-hc-WRw"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiI-w2-y3B" userLabel="Button2">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="KiI-w2-y3B" userLabel="Button2">
                                 <rect key="frame" x="107" y="264" width="200" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="9MV-W1-8mh"/>
                                     <constraint firstAttribute="height" constant="100" id="jfn-TM-bCg"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </button>
-                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" buttonType="system" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKU-k8-Loe" userLabel="Button3">
+                            <button opaque="NO" contentMode="scaleToFill" contentHorizontalAlignment="center" contentVerticalAlignment="center" lineBreakMode="middleTruncation" translatesAutoresizingMaskIntoConstraints="NO" id="tKU-k8-Loe" userLabel="Button3">
                                 <rect key="frame" x="107" y="409" width="200" height="100"/>
                                 <constraints>
                                     <constraint firstAttribute="width" constant="200" id="kFb-wt-LG4"/>
                                     <constraint firstAttribute="height" constant="100" id="vgv-BB-mfa"/>
                                 </constraints>
-                                <state key="normal" title="Button"/>
+                                <color key="tintColor" white="0.0" alpha="0.0" colorSpace="custom" customColorSpace="genericGamma22GrayColorSpace"/>
                             </button>
                         </subviews>
                         <viewLayoutGuide key="safeArea" id="6Tk-OE-BBY"/>
