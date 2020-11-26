@@ -15,6 +15,7 @@ class ViewController: UIViewController {
     var countries = [String]()
     var btns = [UIButton]()
     var score = 0
+    var correctAnswer = 0
     
     override func viewDidLoad() {
         super.viewDidLoad()
@@ -24,7 +25,10 @@ class ViewController: UIViewController {
         askQuestion()
     }
     
-    func askQuestion() {
+    func askQuestion(action: UIAlertAction? = nil) {
+        
+        countries.shuffle()
+        
         for index in 0..<3 {
             let btn = btns[index]
             let image = UIImage(named: countries[index])
@@ -32,6 +36,24 @@ class ViewController: UIViewController {
             btn.layer.borderWidth = 1
             btn.layer.borderColor = UIColor.lightGray.cgColor
         }
+        
+        correctAnswer = Int.random(in: 0...2)
+        title = countries[correctAnswer].uppercased()
+    }
+    
+    @IBAction func buttonClicked(_ sender: Any) {
+        var alertTitle: String
+        if btns.firstIndex(of: sender as! UIButton) == correctAnswer  {
+            alertTitle = "Right"
+            score += 1
+        }
+        else{
+            alertTitle = "Wrong"
+            score -= 1
+        }
+        let alert = UIAlertController(title: alertTitle, message: "Your score is \(score)", preferredStyle: .alert)
+        alert.addAction(UIAlertAction(title: "Continue", style: .default, handler: askQuestion as (UIAlertAction) -> Void))
+        self.present(alert, animated: true, completion: nil)
     }
 }
 
