@@ -20,8 +20,8 @@ struct ContentView: View {
                     }
                 }
             }
-            .navigationBarTitle("Title", displayMode:.inline)
             .listStyle(GroupedListStyle())
+            .navigationBarTitle("Menu", displayMode:.large)
         }
     }
 }
