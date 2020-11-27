@@ -7,6 +7,7 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
+		63A244362570A12500C5A218 /* RowItemView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63A244352570A12500C5A218 /* RowItemView.swift */; };
 		63F3420C256BDD5E00381DCC /* idineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3420B256BDD5E00381DCC /* idineApp.swift */; };
 		63F3420E256BDD5E00381DCC /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3420D256BDD5E00381DCC /* ContentView.swift */; };
 		63F34210256BDD6200381DCC /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63F3420F256BDD6200381DCC /* Assets.xcassets */; };
@@ -18,6 +19,7 @@
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
+		63A244352570A12500C5A218 /* RowItemView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = RowItemView.swift; sourceTree = "<group>"; };
 		63F34208256BDD5E00381DCC /* idine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F3420B256BDD5E00381DCC /* idineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idineApp.swift; sourceTree = "<group>"; };
 		63F3420D256BDD5E00381DCC /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -62,6 +64,7 @@
 			children = (
 				63F3420B256BDD5E00381DCC /* idineApp.swift */,
 				63F3420D256BDD5E00381DCC /* ContentView.swift */,
+				63A244352570A12500C5A218 /* RowItemView.swift */,
 				63F3421C256BDDC000381DCC /* Helper.swift */,
 				63F34221256BDDC900381DCC /* menu.json */,
 				63F34220256BDDC900381DCC /* Menu.swift */,
@@ -155,6 +158,7 @@
 				63F3420C256BDD5E00381DCC /* idineApp.swift in Sources */,
 				63F34222256BDDC900381DCC /* Order.swift in Sources */,
 				63F3421D256BDDC000381DCC /* Helper.swift in Sources */,
+				63A244362570A12500C5A218 /* RowItemView.swift in Sources */,
 				63F34223256BDDC900381DCC /* Menu.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;

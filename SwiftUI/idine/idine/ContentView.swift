@@ -15,7 +15,7 @@ struct ContentView: View {
                 ForEach(sections){ section in
                     Section(header:Text(section.name)){
                         ForEach(section.items){
-                            Text($0.name)
+                            RowItemView(item: $0)
                         }
                     }
                 }
