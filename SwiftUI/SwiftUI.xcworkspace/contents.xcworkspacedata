@@ -2,6 +2,9 @@
 <Workspace
    version = "1.0">
    <FileRef
+      location = "group:/Users/heping/Documents/LearningSwift5/SwiftUI/idine-UIKitDelegate/idine-UIKit.xcodeproj">
+   </FileRef>
+   <FileRef
       location = "group:idine/idine.xcodeproj">
    </FileRef>
 </Workspace>
