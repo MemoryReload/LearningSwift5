@@ -1,6 +1,6 @@
 //
 //  AppDelegate.swift
-//  idine
+//  idine-UIKit
 //
 //  Created by 何平 on 2020/11/30.
 //
