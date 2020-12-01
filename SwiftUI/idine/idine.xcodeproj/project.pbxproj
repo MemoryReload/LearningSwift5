@@ -18,6 +18,7 @@
 		639C3ECE2575F3E700966557 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3ECD2575F3E700966557 /* OrderView.swift */; };
 		639C3EDC257634CD00966557 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3EDB257634CD00966557 /* AppView.swift */; };
 		639C3EE42576383A00966557 /* MenuView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3EE32576383A00966557 /* MenuView.swift */; };
+		639C3EED2576417700966557 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3EEC2576417700966557 /* CheckoutView.swift */; };
 		63F3420C256BDD5E00381DCC /* idineApp.swift in Sources */ = {isa = PBXBuildFile; fileRef = 63F3420B256BDD5E00381DCC /* idineApp.swift */; };
 /* End PBXBuildFile section */
 
@@ -33,6 +34,7 @@
 		639C3ECD2575F3E700966557 /* OrderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderView.swift; path = ../../shared/OrderView.swift; sourceTree = "<group>"; };
 		639C3EDB257634CD00966557 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppView.swift; path = ../../shared/AppView.swift; sourceTree = "<group>"; };
 		639C3EE32576383A00966557 /* MenuView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = MenuView.swift; path = ../../shared/MenuView.swift; sourceTree = "<group>"; };
+		639C3EEC2576417700966557 /* CheckoutView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = CheckoutView.swift; path = ../../shared/CheckoutView.swift; sourceTree = "<group>"; };
 		63F34208256BDD5E00381DCC /* idine.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = idine.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		63F3420B256BDD5E00381DCC /* idineApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = idineApp.swift; sourceTree = "<group>"; };
 		63F34214256BDD6200381DCC /* Info.plist */ = {isa = PBXFileReference; lastKnownFileType = text.plist.xml; path = Info.plist; sourceTree = "<group>"; };
@@ -76,6 +78,7 @@
 		63F3420A256BDD5E00381DCC /* idine */ = {
 			isa = PBXGroup;
 			children = (
+				639C3EEC2576417700966557 /* CheckoutView.swift */,
 				639C3EE32576383A00966557 /* MenuView.swift */,
 				639C3EDB257634CD00966557 /* AppView.swift */,
 				639C3ECD2575F3E700966557 /* OrderView.swift */,
@@ -165,6 +168,7 @@
 			files = (
 				63103219257509480018A29B /* ItemDetailView.swift in Sources */,
 				639C3ECE2575F3E700966557 /* OrderView.swift in Sources */,
+				639C3EED2576417700966557 /* CheckoutView.swift in Sources */,
 				639C3EDC257634CD00966557 /* AppView.swift in Sources */,
 				6310321A257509480018A29B /* Helper.swift in Sources */,
 				639C3EE42576383A00966557 /* MenuView.swift in Sources */,

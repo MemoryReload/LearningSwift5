@@ -21,6 +21,7 @@
 		63567CDC25752079004F015D /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 63567CDB25752079004F015D /* Preview Assets.xcassets */; };
 		639C3ECB2575F3DB00966557 /* OrderView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3ECA2575F3DB00966557 /* OrderView.swift */; };
 		639C3ED9257634BD00966557 /* AppView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3ED8257634BD00966557 /* AppView.swift */; };
+		639C3EEA2576415B00966557 /* CheckoutView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 639C3EE92576415B00966557 /* CheckoutView.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -40,6 +41,7 @@
 		63567CDB25752079004F015D /* Preview Assets.xcassets */ = {isa = PBXFileReference; lastKnownFileType = folder.assetcatalog; path = "Preview Assets.xcassets"; sourceTree = "<group>"; };
 		639C3ECA2575F3DB00966557 /* OrderView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = OrderView.swift; path = ../../shared/OrderView.swift; sourceTree = "<group>"; };
 		639C3ED8257634BD00966557 /* AppView.swift */ = {isa = PBXFileReference; fileEncoding = 4; lastKnownFileType = sourcecode.swift; name = AppView.swift; path = ../../shared/AppView.swift; sourceTree = "<group>"; };
+		639C3EE92576415B00966557 /* CheckoutView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; name = CheckoutView.swift; path = ../../shared/CheckoutView.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -84,6 +86,7 @@
 				639C3ED8257634BD00966557 /* AppView.swift */,
 				63567CAE25751ABD004F015D /* AppDelegate.swift */,
 				63567CB025751ABD004F015D /* SceneDelegate.swift */,
+				639C3EE92576415B00966557 /* CheckoutView.swift */,
 				63567CB925751ABF004F015D /* LaunchScreen.storyboard */,
 				63567CBC25751ABF004F015D /* Info.plist */,
 				63567CDA25752079004F015D /* Preview Content */,
@@ -171,6 +174,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				63567CD125751B3D004F015D /* Menu.swift in Sources */,
+				639C3EEA2576415B00966557 /* CheckoutView.swift in Sources */,
 				63567CD225751B3D004F015D /* Helper.swift in Sources */,
 				63567CD325751B3D004F015D /* Order.swift in Sources */,
 				63567CD025751B3D004F015D /* ItemDetailView.swift in Sources */,
