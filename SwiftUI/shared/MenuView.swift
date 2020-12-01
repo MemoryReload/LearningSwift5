@@ -7,7 +7,7 @@
 
 import SwiftUI
 
-struct ContentView: View {
+struct MenuView: View {
     var body: some View {
         let sections = Bundle.main.decode([MenuSection].self, from: "menu.json")
         NavigationView{
@@ -21,13 +21,13 @@ struct ContentView: View {
                 }
             }
             .listStyle(GroupedListStyle())
-            .navigationBarTitle("Menu", displayMode:.large)
+            .navigationBarTitle("Menu")
         }
     }
 }
 
 struct ContentView_Previews: PreviewProvider {
     static var previews: some View {
-        ContentView()
+        MenuView()
     }
 }

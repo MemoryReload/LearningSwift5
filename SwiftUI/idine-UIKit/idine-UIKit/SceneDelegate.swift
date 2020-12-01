@@ -20,7 +20,7 @@ class SceneDelegate: UIResponder, UIWindowSceneDelegate {
 
         let order = Order()
         // Create the SwiftUI view that provides the window contents.
-        let contentView = ContentView().environmentObject(order)
+        let contentView = AppView().environmentObject(order)
 
         // Use a UIHostingController as window root view controller.
         if let windowScene = scene as? UIWindowScene {
