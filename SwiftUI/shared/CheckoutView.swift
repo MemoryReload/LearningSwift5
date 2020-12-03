@@ -10,6 +10,7 @@ import SwiftUI
 struct CheckoutView: View {
     @EnvironmentObject var order: Order
     static let paymentTypes = ["Cash", "Credit Card", "iDine Points"]
+    static let tipAmounts = [10, 15, 20, 25, 0]
     @State var paymentType = "Cash"
     @State var addLoyaltyDetails = false
     @State private var loyaltyNumber = ""
@@ -26,6 +27,18 @@ struct CheckoutView: View {
                 Toggle("Add iDine loyalty card", isOn: $addLoyaltyDetails.animation())
                 if addLoyaltyDetails {
                     TextField("Enter your iDine ID", text: $loyaltyNumber)
+                }
+            }
+            Section(header: Text("Add a tip?")) {
+                Picker("Percentage:", selection: $tipIndex) {
+                    ForEach(0..<Self.tipAmounts.count) {
+                        Text("\(Self.tipAmounts[$0])%")
+                    }
+                }.pickerStyle(SegmentedPickerStyle())
+            }
+            Section(header: Text("TOTAL: $100")) {
+                Button("Confirm order") {
+                    
                 }
             }
         }
