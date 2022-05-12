@@ -66,5 +66,11 @@ struct CheckoutView_Previews: PreviewProvider {
         NavigationView{
             CheckoutView()
         }.environmentObject(order)
+        
+        if #available(iOS 15.0, *) {
+            NavigationView{
+                CheckoutView()
+            }.environmentObject(order).previewInterfaceOrientation(.landscapeLeft)
+        }
     }
 }
