@@ -12,13 +12,8 @@ struct ContentView: View {
     @State var emojiCount = 4
     
     var body: some View {
-        VStack(alignment:.leading){
-            Text("Memorize!")
-                .alignmentGuide(HorizontalAlignment.leading){d in
-                    print("<Text> explicit: \(d[explicit: HorizontalAlignment.center]), implicit: \(d[HorizontalAlignment.center])")
-                    return 0
-                }
-                .border(.red)
+        VStack {
+            Text("Memorize!").font(.system(size: 24, weight: .semibold)).frame(height: 64, alignment: .center)
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
                     ForEach(emojis[0..<emojiCount],id:\.self) { emoji in
@@ -26,20 +21,15 @@ struct ContentView: View {
                             .aspectRatio(2/3, contentMode: .fit)
                     }
                 }
-            }.alignmentGuide(.leading){ d in 0}
+            }
             .foregroundColor(.red)
-            Spacer()
             HStack {
                 remove
-//                Spacer() // expanded
+                Spacer() // expanded
                 add
             }
             .font(.largeTitle)
             .padding(.horizontal)
-            .alignmentGuide(.leading){d in
-                print("<HStack> explicit: \(d[explicit: HorizontalAlignment.center]), implicit: \(d[HorizontalAlignment.center])")
-                return 0
-            }
             .border(.red)
         }
         .padding(.horizontal)

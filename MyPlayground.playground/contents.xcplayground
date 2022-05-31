@@ -4,12 +4,15 @@
         <page name='self'/>
         <page name='diff of struct &amp; class'/>
         <page name='override &amp; polymoorphism'/>
-        <page name='test'/>
         <page name='@objc&amp;dynamic'/>
         <page name='Calendar'/>
         <page name='testUI'/>
         <page name='mirror'/>
         <page name='template'/>
         <page name='do catch'/>
+        <page name='lazy'/>
+        <page name='SwiftUI-Alignment'/>
+        <page name='alignment-guides-animation'/>
+        <page name='alignment-guides-tool'/>
     </pages>
 </playground>
