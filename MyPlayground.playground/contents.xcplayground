@@ -6,13 +6,12 @@
         <page name='override &amp; polymoorphism'/>
         <page name='@objc&amp;dynamic'/>
         <page name='Calendar'/>
-        <page name='testUI'/>
+        <page name='test'/>
         <page name='mirror'/>
         <page name='template'/>
         <page name='do catch'/>
         <page name='lazy'/>
-        <page name='SwiftUI-Alignment'/>
         <page name='alignment-guides-animation'/>
-        <page name='alignment-guides-tool'/>
+        <page name='SwiftUI-Alignment'/>
     </pages>
 </playground>
