@@ -8,50 +8,68 @@
 import SwiftUI
 
 struct ContentView: View {
-    var emojis = ["🚂","🚀","🚁","🚜","🚗","🚌","🚓","🚙","🚚","🚛","🛵","🛺","🏎","🚔","🚃","🚞","🚘","🚆","🚅","🚖","🚊","🚉","🛸","🛰","🚟"]
-    @State var emojiCount = 4
+    static let emojis_vehicle = ["🚂","🚀","🚁","🚜","🚗","🚌","🚓","🚙","🚚","🚛","🛵","🛺","🏎","🚔","🚃","🚞","🚘","🚆","🚅","🚖","🚊","🚉"]
+    static let emojis_face = ["😀","😃","😄","😁","😆","🥹","😅","😂","🤣","🥲","☺️","😊","😇","🙂","🙃","😉","😌","😍","🥰","😘","😗","🤪"]
+    static let emojis_animal = ["🐶","🐱","🐭","🐹","🐰","🦊","🐻","🐼","🐻‍❄️","🐨","🐯","🦁","🐮","🐷","🐸","🐵","🐔","🐧","🐦","🐤","🦆","🦉"]
+    static let count = 8
+        
+    @State var emojis : [String] = randomCard(from: emojis_vehicle)
     
     var body: some View {
         VStack {
-            Text("Memorize!").font(.system(size: 24, weight: .semibold)).frame(height: 64, alignment: .center)
+            Text("Memorize!").font(.system(size: 24, weight: .semibold)).frame(height: 44, alignment: .center)
             ScrollView {
                 LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
-                    ForEach(emojis[0..<emojiCount],id:\.self) { emoji in
+                    ForEach(emojis[0..<emojis.count],id:\.self) { emoji in
                         CardView(content: emoji)
                             .aspectRatio(2/3, contentMode: .fit)
                     }
                 }
             }
             .foregroundColor(.red)
-            HStack {
-                remove
-                Spacer() // expanded
-                add
-            }
-            .font(.largeTitle)
-            .padding(.horizontal)
-            .border(.red)
+            toolBar
         }
         .padding(.horizontal)
     }
     
-    var remove: some View {
-        Button {
-            if emojiCount > 1 {
-                emojiCount -= 1
+    var toolBar: some View {
+        HStack {
+            BarItemView(image: "car", title: "Vehicles") {
+                emojis = Self.randomCard(from: Self.emojis_vehicle)
             }
-        } label: {
-            Image(systemName: "minus.circle")
+            Spacer() // expanded
+            BarItemView(image: "person", title: "Mojis") {
+                emojis = Self.randomCard(from: Self.emojis_face)
+            }
+            Spacer()
+            BarItemView(image: "pawprint", title: "Animals") {
+                emojis = Self.randomCard(from: Self.emojis_animal)
+            }
         }
+        .font(.largeTitle)
+        .padding(.horizontal)
     }
     
-    var add: some View {
+     static func randomCard(from cards: [String]) -> [String] {
+        guard cards.count > count else { return [] }
+        let tempCard = cards.shuffled()
+        return Array(tempCard[0..<count])
+    }
+}
+
+struct BarItemView: View {
+    var image: String
+    var title: String
+    var action: () -> Void
+    var body: some View {
         Button {
-            if emojiCount < emojis.count {
-                emojiCount += 1
-            }
+            action()
         } label: {
-            Image(systemName: "plus.circle")
+            VStack {
+                Image(systemName: image)
+                Text(title)
+                    .font(.body)
+            }
         }
     }
 }
