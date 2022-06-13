@@ -7,7 +7,9 @@
 
 import Foundation
 
-struct  MemorizeGame<Content> {
+struct  MemorizeGame<Content> where Content: Equatable {
+    
+    var prematchedIndex: Int?
     
     struct Card: Identifiable {
         var id: Int
@@ -25,19 +27,29 @@ struct  MemorizeGame<Content> {
             cards.append(Card(id:i*2,content: content))
             cards.append(Card(id:i*2+1,content: content))
         }
+        cards = cards.shuffled() //radom the card sequeence
     }
     
     mutating func chooseCard(_ card: Card) {
-        let sIndex = indexOf(card)
-        cards[sIndex].isFaceUp.toggle()
+        let sIndex = cards.firstIndex{ $0.id == card.id }
+        if let index = sIndex, cards[index].isFaceUp == false, cards[index].isMatched == false {
+            if let matchIndex = prematchedIndex {
+                if cards[index].content == cards[matchIndex].content {
+                    cards[index].isMatched = true
+                    cards[matchIndex].isMatched = true
+                }
+                prematchedIndex = nil
+            }else{
+                for i in cards.indices {
+                    if i == index  {
+                        prematchedIndex = index
+                    }else{
+                        cards[i].isFaceUp = false
+                    }
+                }
+            }
+            cards[index].isFaceUp.toggle()
+        }
     }
     
-    func indexOf(_ card: Card) -> Int {
-        for (index, _card) in cards.enumerated() {
-            if _card.id == card.id  {
-                return index
-            }
-        }
-        return 0
-    }
 }
