@@ -27,7 +27,7 @@ struct ContentView: View {
 }
 
 struct CardView: View {
-    let card: MemorizeGame<String>.Card
+    let card: EmojiMemoryGame.Card
     
     var body: some View {
         ZStack {

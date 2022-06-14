@@ -9,7 +9,7 @@ import Foundation
 
 struct  MemorizeGame<Content> where Content: Equatable {
     
-    var prematchedIndex: Int?
+    private var prematchedIndex: Int?
     
     struct Card: Identifiable {
         var id: Int

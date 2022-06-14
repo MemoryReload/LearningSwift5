@@ -8,15 +8,17 @@
 import Foundation
  
 class EmojiMemoryGame: ObservableObject {
-    static var emojis = ["🚂","🚀","🚁","🚜","🚗","🚌","🚓","🚙","🚚","🚛","🛵","🛺","🏎","🚔","🚃","🚞","🚘","🚆","🚅","🚖","🚊","🚉","🛸","🛰","🚟"]
+    typealias Card = MemorizeGame<String>.Card
+    
+    private static var emojis = ["🚂","🚀","🚁","🚜","🚗","🚌","🚓","🚙","🚚","🚛","🛵","🛺","🏎","🚔","🚃","🚞","🚘","🚆","🚅","🚖","🚊","🚉","🛸","🛰","🚟"]
     
     @Published private var model = MemorizeGame(countOfCardPairs: 4) { emojis[$0] }
     
-    var cards: [MemorizeGame<String>.Card] {
+    var cards: [Card] {
         model.cards
     }
     
-    func choose(_ card: MemorizeGame<String>.Card) {
+    func choose(_ card: Card) {
         model.chooseCard(card)
     }
 }
