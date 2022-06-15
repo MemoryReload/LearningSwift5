@@ -9,7 +9,10 @@ import Foundation
 
 struct  MemorizeGame<Content> where Content: Equatable {
     
-    private var prematchedIndex: Int?
+    private var prematchedIndex: Int? {
+        get { cards.indices.filter({ cards[$0].isFaceUp}).oneAndOnly }
+        set { cards.indices.forEach{ cards[$0].isFaceUp = $0 == newValue} }
+    }
     
     struct Card: Identifiable {
         var id: Int
@@ -31,25 +34,23 @@ struct  MemorizeGame<Content> where Content: Equatable {
     }
     
     mutating func chooseCard(_ card: Card) {
-        let sIndex = cards.firstIndex{ $0.id == card.id }
-        if let index = sIndex, cards[index].isFaceUp == false, cards[index].isMatched == false {
+        if let index = cards.firstIndex(where: { $0.id == card.id }),
+           cards[index].isFaceUp == false,
+           cards[index].isMatched == false {
             if let matchIndex = prematchedIndex {
                 if cards[index].content == cards[matchIndex].content {
                     cards[index].isMatched = true
                     cards[matchIndex].isMatched = true
                 }
-                prematchedIndex = nil
+                cards[index].isFaceUp = true
             }else{
-                for i in cards.indices {
-                    if i == index  {
-                        prematchedIndex = index
-                    }else{
-                        cards[i].isFaceUp = false
-                    }
-                }
+                prematchedIndex = index
             }
-            cards[index].isFaceUp.toggle()
         }
     }
     
+}
+
+extension Array {
+    var oneAndOnly: Element? { self.count == 1 ? self.first : nil }
 }
