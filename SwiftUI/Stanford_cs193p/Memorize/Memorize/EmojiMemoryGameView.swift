@@ -23,6 +23,7 @@ struct EmojiMemoryGameView: View {
             }
             .padding(.horizontal)
             .foregroundColor(.red)
+//            .edgesIgnoringSafeArea([.all])
     }
 }
 
@@ -30,18 +31,30 @@ struct CardView: View {
     let card: EmojiMemoryGame.Card
     
     var body: some View {
-        ZStack {
-            let shape = RoundedRectangle(cornerRadius: 20)
-            if card.isFaceUp {
-                shape.fill().foregroundColor(.white)
-                shape.strokeBorder(lineWidth: 3)
-                Text(card.content).font(.largeTitle)
-            } else if card.isMatched {
-                shape.opacity(0)
-            }else{
-                shape.fill()
+        GeometryReader { geometry in
+            ZStack {
+                let shape = RoundedRectangle(cornerRadius: DrawingConfig.cornerRadius )
+                if card.isFaceUp {
+                    shape.fill().foregroundColor(.white)
+                    shape.strokeBorder(lineWidth: DrawingConfig.lineWith)
+                    Text(card.content).font(fontForSize(geometry.size))
+                } else if card.isMatched {
+                    shape.opacity(0)
+                }else{
+                    shape.fill()
+                }
             }
         }
+    }
+    
+    private func fontForSize(_ size: CGSize) -> Font {
+        .system(size: min(size.width, size.height) * DrawingConfig.fontScale)
+    }
+    
+    private struct DrawingConfig {
+        static let cornerRadius: CGFloat = 20
+        static let lineWith: CGFloat = 3
+        static let fontScale: CGFloat = 0.8
     }
 }
 
