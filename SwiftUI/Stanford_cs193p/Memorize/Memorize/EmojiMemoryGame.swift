@@ -12,7 +12,7 @@ class EmojiMemoryGame: ObservableObject {
     
     private static var emojis = ["🚂","🚀","🚁","🚜","🚗","🚌","🚓","🚙","🚚","🚛","🛵","🛺","🏎","🚔","🚃","🚞","🚘","🚆","🚅","🚖","🚊","🚉","🛸","🛰","🚟"]
     
-    @Published private var model = MemorizeGame(countOfCardPairs: 4) { emojis[$0] }
+    @Published private var model = MemorizeGame(countOfCardPairs: 15) { emojis[$0] }
     
     var cards: [Card] {
         model.cards
