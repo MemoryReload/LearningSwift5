@@ -26,7 +26,7 @@ struct EmojiMemoryGameView: View {
                                         game.choose(card)
                                     }
         }
-            .padding(.horizontal)
+        .padding([.leading,.trailing], 5)
             .foregroundColor(.red)
 //            .edgesIgnoringSafeArea([.all])
     }
@@ -49,6 +49,7 @@ struct CardView: View {
                     shape.fill()
                 }
             }
+            .padding(5)
         }
     }
     
@@ -57,9 +58,9 @@ struct CardView: View {
     }
     
     private struct DrawingConfig {
-        static let cornerRadius: CGFloat = 20
+        static let cornerRadius: CGFloat = 8
         static let lineWith: CGFloat = 3
-        static let fontScale: CGFloat = 0.8
+        static let fontScale: CGFloat = 0.65
     }
 }
 
