@@ -10,15 +10,18 @@ import SwiftUI
 struct AspectVGrid<Item, Content>: View where Item: Identifiable, Content: View {
     var items: [Item]
     var aspectRatio: CGFloat
-    var content: (Item) -> Content
+    @ViewBuilder var content: (Item) -> Content
     var body: some View {
         GeometryReader { geometry in
-            let width: CGFloat = withThatFits(itemCount: items.count, size: geometry.size, itemAspectRatio: aspectRatio)
-            LazyVGrid(columns: [GridItem(.adaptive(minimum: width), spacing: 0)], spacing: 0) {
-                                ForEach(items) { item in
-                                    content(item)
-                                    .aspectRatio(aspectRatio, contentMode: .fit)
-                                }
+            VStack {
+                let width: CGFloat = withThatFits(itemCount: items.count, size: geometry.size, itemAspectRatio: aspectRatio)
+                LazyVGrid(columns: [GridItem(.adaptive(minimum: width), spacing: 0)], spacing: 0) {
+                                    ForEach(items) { item in
+                                        content(item)
+                                        .aspectRatio(aspectRatio, contentMode: .fit)
+                                    }
+                }
+                Spacer(minLength: 0)
             }
         }
     }

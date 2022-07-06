@@ -18,7 +18,7 @@ struct  MemorizeGame<Content> where Content: Equatable {
         var id: Int
         var content: Content
         var isMatched: Bool = false
-        var isFaceUp: Bool = true
+        var isFaceUp: Bool = false
     }
     
     private(set) var cards: [Card]

@@ -10,25 +10,33 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
     var body: some View {
-//            ScrollView {
-//                LazyVGrid(columns: [GridItem(.adaptive(minimum: 80))]) {
-//                    ForEach(game.cards) { card in
-//                        CardView(card: card)
-//                        .aspectRatio(2/3, contentMode: .fit)
-//                        .onTapGesture {
-//                            game.choose(card)
-//                        }
-//                    }
-//                }
-//            }
         AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
-            CardView(card: card).onTapGesture {
-                                        game.choose(card)
-                                    }
+//            carView(forCard: card)
+            if card.isMatched && !card.isFaceUp {
+                Rectangle().opacity(0)
+            }else{
+                CardView(card: card)
+                    .padding(5)
+                    .onTapGesture {
+                                            game.choose(card)
+                                        }
+            }
         }
         .padding([.leading,.trailing], 5)
             .foregroundColor(.red)
-//            .edgesIgnoringSafeArea([.all])
+    }
+    
+    @ViewBuilder
+    func carView(forCard card: EmojiMemoryGame.Card) -> some View {
+        if card.isMatched && !card.isFaceUp {
+            Rectangle().opacity(0)
+        }else{
+            CardView(card: card)
+                .padding(5)
+                .onTapGesture {
+                    game.choose(card)
+                }
+        }
     }
 }
 
@@ -49,7 +57,6 @@ struct CardView: View {
                     shape.fill()
                 }
             }
-            .padding(5)
         }
     }
     
