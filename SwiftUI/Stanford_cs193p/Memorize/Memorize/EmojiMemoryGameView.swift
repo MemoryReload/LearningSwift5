@@ -26,18 +26,18 @@ struct EmojiMemoryGameView: View {
             .foregroundColor(.red)
     }
     
-    @ViewBuilder
-    func carView(forCard card: EmojiMemoryGame.Card) -> some View {
-        if card.isMatched && !card.isFaceUp {
-            Rectangle().opacity(0)
-        }else{
-            CardView(card: card)
-                .padding(5)
-                .onTapGesture {
-                    game.choose(card)
-                }
-        }
-    }
+//    @ViewBuilder
+//    func carView(forCard card: EmojiMemoryGame.Card) -> some View {
+//        if card.isMatched && !card.isFaceUp {
+//            Rectangle().opacity(0)
+//        }else{
+//            CardView(card: card)
+//                .padding(5)
+//                .onTapGesture {
+//                    game.choose(card)
+//                }
+//        }
+//    }
 }
 
 struct CardView: View {
@@ -46,18 +46,11 @@ struct CardView: View {
     var body: some View {
         GeometryReader { geometry in
             ZStack {
-                let shape = RoundedRectangle(cornerRadius: DrawingConfig.cornerRadius )
-                if card.isFaceUp {
-                    shape.fill().foregroundColor(.white)
-                    shape.strokeBorder(lineWidth: DrawingConfig.lineWith)
+                
                     Pie(startAngle: Angle(degrees: -90), endAngel: Angle(degrees: 20), clockwise: true).padding(5).opacity(0.5)
                     Text(card.content).font(fontForSize(geometry.size))
-                } else if card.isMatched {
-                    shape.opacity(0)
-                }else{
-                    shape.fill()
-                }
             }
+            .cardify(isFaceUp: card.isFaceUp)
         }
     }
     
