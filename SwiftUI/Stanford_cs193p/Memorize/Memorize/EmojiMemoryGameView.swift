@@ -48,10 +48,18 @@ struct CardView: View {
             ZStack {
                 
                     Pie(startAngle: Angle(degrees: -90), endAngel: Angle(degrees: 20), clockwise: true).padding(5).opacity(0.5)
-                    Text(card.content).font(fontForSize(geometry.size))
+                    Text(card.content)
+                    .rotationEffect(Angle(degrees: card.isMatched ? 360 : 0))
+                    .animation(Animation.easeInOut(duration: 1).repeatForever(autoreverses: false))
+                    .font(Font.system(size: DrawingConfig.fontSize))
+                    .scaleEffect(scale(thatFits: geometry.size))
             }
             .cardify(isFaceUp: card.isFaceUp)
         }
+    }
+    
+    func scale(thatFits size: CGSize) -> CGFloat {
+        min(size.width, size.height) / (DrawingConfig.fontSize / DrawingConfig.fontScale)
     }
     
     private func fontForSize(_ size: CGSize) -> Font {
@@ -59,9 +67,8 @@ struct CardView: View {
     }
     
     private struct DrawingConfig {
-        static let cornerRadius: CGFloat = 8
-        static let lineWith: CGFloat = 3
         static let fontScale: CGFloat = 0.65
+        static let fontSize: CGFloat = 32
     }
 }
 
