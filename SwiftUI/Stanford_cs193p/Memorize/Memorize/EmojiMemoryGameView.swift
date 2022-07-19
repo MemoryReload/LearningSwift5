@@ -11,19 +11,21 @@ struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
     var body: some View {
         AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
-//            carView(forCard: card)
+            //            carView(forCard: card)
             if card.isMatched && !card.isFaceUp {
                 Rectangle().opacity(0)
             }else{
                 CardView(card: card)
                     .padding(5)
                     .onTapGesture {
-                                            game.choose(card)
-                                        }
+                        withAnimation(.easeInOut(duration: 3)) {
+                            game.choose(card)
+                        }
+                    }
             }
         }
         .padding([.leading,.trailing], 5)
-            .foregroundColor(.red)
+        .foregroundColor(.red)
     }
     
 //    @ViewBuilder
