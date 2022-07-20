@@ -30,7 +30,7 @@ struct  MemorizeGame<Content> where Content: Equatable {
             cards.append(Card(id:i*2,content: content))
             cards.append(Card(id:i*2+1,content: content))
         }
-        cards = cards.shuffled() //radom the card sequeence
+        shuffle()
     }
     
     mutating func chooseCard(_ card: Card) {
@@ -47,6 +47,10 @@ struct  MemorizeGame<Content> where Content: Equatable {
                 prematchedIndex = index
             }
         }
+    }
+    
+    mutating func shuffle() {
+        cards = cards.shuffled() //radom the card sequeence
     }
     
 }

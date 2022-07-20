@@ -10,22 +10,30 @@ import SwiftUI
 struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
     var body: some View {
-        AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
-            //            carView(forCard: card)
-            if card.isMatched && !card.isFaceUp {
-                Rectangle().opacity(0)
-            }else{
-                CardView(card: card)
-                    .padding(5)
-                    .onTapGesture {
-                        withAnimation(.easeInOut(duration: 3)) {
-                            game.choose(card)
+        VStack {
+            AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
+                //            carView(forCard: card)
+                if card.isMatched && !card.isFaceUp {
+                    Rectangle().opacity(0)
+                }else{
+                    CardView(card: card)
+                        .padding(5)
+                        .onTapGesture {
+                            withAnimation(.easeInOut(duration: 1)) {
+                                game.choose(card)
+                            }
                         }
-                    }
+                }
+            }
+            .padding([.leading,.trailing], 5)
+            .foregroundColor(.red)
+            Spacer(minLength: 20)
+            Button("Shuffle") {
+                withAnimation {
+                    game.shuffleCards()
+                }
             }
         }
-        .padding([.leading,.trailing], 5)
-        .foregroundColor(.red)
     }
     
 //    @ViewBuilder
