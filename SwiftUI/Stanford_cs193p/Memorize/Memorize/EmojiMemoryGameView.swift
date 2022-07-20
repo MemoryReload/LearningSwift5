@@ -9,15 +9,30 @@ import SwiftUI
 
 struct EmojiMemoryGameView: View {
     @ObservedObject var game: EmojiMemoryGame
+    @State var dealedCards: Set<Int> = []
+    
+    func dealCard(_ card: EmojiMemoryGame.Card) {
+        dealedCards.insert(card.id)
+    }
+    
+//    func dealCards(_ cards: [EmojiMemoryGame.Card]) {
+//        dealedCards = Set(cards.map{ $0.id })
+//    }
+    
+    func isDealedCard(_ card: EmojiMemoryGame.Card) -> Bool {
+        dealedCards.contains(card.id)
+    }
+    
     var body: some View {
         VStack {
             AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
                 //            carView(forCard: card)
-                if card.isMatched && !card.isFaceUp {
-                    Rectangle().opacity(0)
+                if !isDealedCard(card)  || card.isMatched && !card.isFaceUp {
+                    Color.clear
                 }else{
                     CardView(card: card)
                         .padding(5)
+                        .transition(AnyTransition.scale.animation(.easeInOut(duration: 1)))
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 1)) {
                                 game.choose(card)
@@ -27,6 +42,15 @@ struct EmojiMemoryGameView: View {
             }
             .padding([.leading,.trailing], 5)
             .foregroundColor(.red)
+            .onAppear {
+                for card in game.cards {
+                    dealCard(card)
+                }
+//                dealCards(game.cards)
+            }
+//            .onChange(of: game.cards) { newValue in
+//                print("cards: \(newValue)")
+//            }
             Spacer(minLength: 20)
             Button("Shuffle") {
                 withAnimation {
@@ -49,6 +73,12 @@ struct EmojiMemoryGameView: View {
 //        }
 //    }
 }
+
+//extension EmojiMemoryGame.Card: Equatable where Content == String {
+//    static func == (lhs: MemorizeGame.Card, rhs: MemorizeGame.Card) -> Bool {
+//        lhs.id == rhs.id && lhs.content == rhs.content && lhs.isFaceUp == rhs.isFaceUp && lhs.isMatched == rhs.isMatched
+//    }
+//}
 
 struct CardView: View {
     let card: EmojiMemoryGame.Card

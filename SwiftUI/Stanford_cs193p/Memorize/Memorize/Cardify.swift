@@ -12,7 +12,7 @@ struct Cardify: AnimatableModifier /* ViewModifier, Animatable */ {
     var animatableData: CGFloat {
         get { rotation }
         set {
-            print("rotation = \(newValue)")
+//            print("rotation = \(newValue)")
             rotation = newValue
         }
     }
