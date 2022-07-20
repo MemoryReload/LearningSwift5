@@ -32,7 +32,13 @@ struct EmojiMemoryGameView: View {
                 }else{
                     CardView(card: card)
                         .padding(5)
-                        .transition(AnyTransition.scale.animation(.easeInOut(duration: 1)))
+                        .transition(
+                            AnyTransition.asymmetric(
+                                insertion:AnyTransition.scale,
+                                removal:AnyTransition.opacity
+                            )
+                            .animation(.easeInOut(duration: 1))
+                        )
                         .onTapGesture {
                             withAnimation(.easeInOut(duration: 1)) {
                                 game.choose(card)
@@ -46,11 +52,11 @@ struct EmojiMemoryGameView: View {
                 for card in game.cards {
                     dealCard(card)
                 }
-//                dealCards(game.cards)
+                //                dealCards(game.cards)
             }
-//            .onChange(of: game.cards) { newValue in
-//                print("cards: \(newValue)")
-//            }
+            //            .onChange(of: game.cards) { newValue in
+            //                print("cards: \(newValue)")
+            //            }
             Spacer(minLength: 20)
             Button("Shuffle") {
                 withAnimation {
