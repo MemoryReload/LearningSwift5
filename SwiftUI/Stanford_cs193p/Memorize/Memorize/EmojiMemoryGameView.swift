@@ -25,43 +25,51 @@ struct EmojiMemoryGameView: View {
     
     var body: some View {
         VStack {
-            AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
-                //            carView(forCard: card)
-                if !isDealedCard(card)  || card.isMatched && !card.isFaceUp {
-                    Color.clear
-                }else{
-                    CardView(card: card)
-                        .padding(5)
-                        .transition(
-                            AnyTransition.asymmetric(
-                                insertion:AnyTransition.scale,
-                                removal:AnyTransition.opacity
-                            )
-                            .animation(.easeInOut(duration: 1))
+            gameBody
+//            Spacer(minLength: 20)
+            shuffle
+        }
+    }
+    
+    var gameBody: some View {
+        AspectVGrid(items:game.cards, aspectRatio: 2/3) { card in
+            //            carView(forCard: card)
+            if !isDealedCard(card)  || card.isMatched && !card.isFaceUp {
+                Color.clear
+            }else{
+                CardView(card: card)
+                    .padding(5)
+                    .transition(
+                        AnyTransition.asymmetric(
+                            insertion:AnyTransition.scale,
+                            removal:AnyTransition.opacity
                         )
-                        .onTapGesture {
-                            withAnimation(.easeInOut(duration: 1)) {
-                                game.choose(card)
-                            }
+                        .animation(.easeInOut(duration: 1))
+                    )
+                    .onTapGesture {
+                        withAnimation(.easeInOut(duration: 1)) {
+                            game.choose(card)
                         }
-                }
+                    }
             }
-            .padding([.leading,.trailing], 5)
-            .foregroundColor(.red)
-            .onAppear {
-                for card in game.cards {
-                    dealCard(card)
-                }
-                //                dealCards(game.cards)
+        }
+        .padding([.leading,.trailing], 5)
+        .foregroundColor(.red)
+        .onAppear {
+            for card in game.cards {
+                dealCard(card)
             }
-            //            .onChange(of: game.cards) { newValue in
-            //                print("cards: \(newValue)")
-            //            }
-            Spacer(minLength: 20)
-            Button("Shuffle") {
-                withAnimation {
-                    game.shuffleCards()
-                }
+            //                dealCards(game.cards)
+        }
+        //            .onChange(of: game.cards) { newValue in
+        //                print("cards: \(newValue)")
+        //            }
+    }
+    
+    var shuffle: some View {
+        Button("Shuffle") {
+            withAnimation {
+                game.shuffleCards()
             }
         }
     }
